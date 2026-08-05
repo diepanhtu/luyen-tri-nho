@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0f19">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Siêu Trí Nhớ - Nền Tảng Luyện Tập Ghi Nhớ</title>
+    <meta name="description"
+        content="Ứng dụng luyện tập phương pháp Siêu trí nhớ: Chuyển đổi các số 00-99 và mã nhị phân thành hình ảnh một cách nhanh chóng và hiệu quả.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header (Fixed Header across all SPA views) -->
+        <header class="app-header">
+            <div class="brand" id="brand-home-btn" role="button" tabindex="0" title="Về trang chủ">
+                <div class="brand-icon">🧠</div>
+                <div class="brand-text">
+                    <h1>Siêu Trí Nhớ</h1>
+                    <p class="tagline" id="header-tagline">Nền Tảng Luyện Trí Nhớ</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button id="nav-btn-home" class="btn btn-secondary nav-home-btn hidden" title="Trang chủ">
+                    <span class="btn-icon">🏠</span>
+                    <span class="nav-text">Trang Chủ</span>
+                </button>
+                <button id="btn-bgcolor" class="icon-btn" title="Đổi màu nền" aria-label="Toggle Background Color">
+                    <span class="icon bgcolor-icon">🎨</span>
+                </button>
+                <button id="btn-theme" class="icon-btn" title="Chuyển chế độ Sáng/Tối" aria-label="Toggle Theme">
+                    <span class="icon theme-icon">🌙</span>
+                </button>
+                <button id="btn-open-modal" class="btn btn-primary">
+                    <span class="btn-icon">📋</span>
+                    <span id="btn-open-modal-text">Xem Bảng Mã Hoá</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- VIEW 1: HOME DASHBOARD (Trang chủ 4 cards) -->
+        <section id="view-home" class="view-section active">
+            <div class="dashboard-hero">
+                <h2 class="hero-title">Chọn Phương Pháp Luyện Tập</h2>
+                <p class="hero-subtitle">Nâng cao khả năng ghi nhớ thông qua các bài tập mã hóa chuyên sâu</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1: 00-99 -->
+                <div class="mode-card" data-mode-target="mode-0099" role="button" tabindex="0">
+                    <div class="card-header-row">
+                        <div class="card-icon-wrapper icon-purple">
+                            <span>🔢</span>
+                        </div>
+                        <div class="card-badge active-badge">Sẵn sàng</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Mã Hóa 00 - 99</h3>
+                        <p class="card-desc">Luyện tập phản xạ chuyển đổi 100 con số từ 00 đến 99 thành từ khóa hình ảnh liên tưởng.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-primary card-btn">Bắt Đầu Học →</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Luyện Nhị Phân -->
+                <div class="mode-card" data-mode-target="mode-binary" role="button" tabindex="0">
+                    <div class="card-header-row">
+                        <div class="card-icon-wrapper icon-emerald">
+                            <span>⚡</span>
+                        </div>
+                        <div class="card-badge active-badge">Sẵn sàng</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Luyện Nhị Phân</h3>
+                        <p class="card-desc">Chuyển đổi chuỗi mã nhị phân 3-bit & 6-bit sang chữ cái mã hóa và từ khóa hình ảnh.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-primary card-btn">Bắt Đầu Học →</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sắp ra mắt -->
+                <div class="mode-card disabled">
+                    <div class="card-header-row">
+                        <div class="card-icon-wrapper icon-amber">
+                            <span>🧩</span>
+                        </div>
+                        <div class="card-badge lock-badge">Sắp ra mắt</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bài Học 3</h3>
+                        <p class="card-desc">Phương pháp luyện tập mới đang được nghiên cứu và phát triển.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-secondary card-btn disabled">Chưa Mở 🔒</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Sắp ra mắt -->
+                <div class="mode-card disabled">
+                    <div class="card-header-row">
+                        <div class="card-icon-wrapper icon-blue">
+                            <span>🎯</span>
+                        </div>
+                        <div class="card-badge lock-badge">Sắp ra mắt</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bài Học 4</h3>
+                        <p class="card-desc">Phương pháp luyện tập nâng cao đang được thiết kế.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-secondary card-btn disabled">Chưa Mở 🔒</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: 00-99 STUDY SCREEN -->
+        <section id="view-0099" class="view-section hidden">
+            <!-- Subheader / Navigation Bar -->
+            <div class="mode-subbar">
+                <button class="btn btn-secondary btn-back-home" title="Về trang chủ">
+                    <span>← Về Trang Chủ</span>
+                </button>
+                <span class="subbar-title">Chế độ: <strong>Mã Hoá 00 - 99</strong></span>
+            </div>
+
+            <!-- Stats Bar & Controls -->
+            <div class="toolbar">
+                <div class="filter-group">
+                    <label for="range-select">Phạm vi luyện tập:</label>
+                    <select id="range-select" class="custom-select">
+                        <option value="all">Tất cả (00 - 99)</option>
+                        <option value="00-19">Hàng 00 - 19</option>
+                        <option value="20-39">Hàng 20 - 39</option>
+                        <option value="40-59">Hàng 40 - 59</option>
+                        <option value="60-79">Hàng 60 - 79</option>
+                        <option value="80-99">Hàng 80 - 99</option>
+                    </select>
+                </div>
+
+                <div class="stats-group">
+                    <div class="stat-pill">
+                        <span class="stat-label">Đã xem:</span>
+                        <span id="stat-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-label">Lặp lại:</span>
+                        <span id="stat-cycle" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Screen Area for 00-99 -->
+            <main class="main-content">
+                <div id="display-area" class="display-area" role="button" tabindex="0"
+                    aria-label="Khu vực hiển thị siêu trí nhớ. Nhấp vào màn hình để sang số tiếp theo.">
+
+                    <!-- Number Display -->
+                    <div class="number-container">
+                        <div class="number-display" id="front-number">00</div>
+                    </div>
+
+                    <!-- Answer Container -->
+                    <div id="answer-container" class="answer-container hidden">
+                        <div class="answer-badge">
+                            <span class="answer-keyword" id="back-keyword">Con Chó</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sequence list of numbers shown -->
+                <div id="history-sequence" class="history-sequence" aria-label="Danh sách số đã xuất hiện"></div>
+
+                <!-- Touch Hint -->
+                <div class="display-hint-text">
+                    <span class="pulse-dot"></span> Chạm màn hình để sang số tiếp theo
+                </div>
+
+                <!-- Quick Control Actions -->
+                <div class="action-buttons">
+                    <button id="btn-flip" class="btn btn-accent" title="Hiện đáp án">
+                        <span id="btn-flip-text">Hiện Đáp Án</span>
+                    </button>
+                </div>
+            </main>
+        </section>
+
+        <!-- VIEW 3: BINARY STUDY SCREEN -->
+        <section id="view-binary" class="view-section hidden">
+            <!-- Subheader / Navigation Bar -->
+            <div class="mode-subbar">
+                <button class="btn btn-secondary btn-back-home" title="Về trang chủ">
+                    <span>← Về Trang Chủ</span>
+                </button>
+                <span class="subbar-title">Chế độ: <strong>Luyện Nhị Phân</strong></span>
+                <button id="btn-binary-guide" class="btn btn-secondary" title="Tra cứu 3-bit">
+                    <span>📖 Tra Cứu 3-Bit</span>
+                </button>
+            </div>
+
+            <!-- Toolbar with Binary Tabs & Stats -->
+            <div class="toolbar">
+                <div class="binary-tabs">
+                    <button class="binary-tab active" data-binary-mode="3bit">Chế độ A</button>
+                    <button class="binary-tab" data-binary-mode="6bit">Chế độ B</button>
+                    <button class="binary-tab" data-binary-mode="modeC">Chế độ C</button>
+                    <button class="binary-tab" data-binary-mode="modeD">Chế độ D</button>
+                </div>
+
+                <div class="stats-group">
+                    <div class="stat-pill">
+                        <span class="stat-label">Đã xem:</span>
+                        <span id="binary-stat-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-label">Lặp lại:</span>
+                        <span id="binary-stat-cycle" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Workspace for Binary -->
+            <main class="binary-workspace" id="binary-workspace" role="button" tabindex="0"
+                aria-label="Màn hình luyện nhị phân. Chạm vào màn hình để sang câu tiếp theo.">
+                <div class="binary-display" id="binary-question">000</div>
+
+                <div class="binary-answer-area hidden" id="binary-answer-area">
+                    <div class="binary-answer-main" id="binary-answer-main">C</div>
+                    <div class="binary-answer-formula" id="binary-answer-formula">000 &rarr; C</div>
+                </div>
+            </main>
+
+            <!-- Touch Hint -->
+            <div class="display-hint-text">
+                <span class="pulse-dot"></span> Chạm màn hình để sang câu tiếp theo
+            </div>
+
+            <div class="action-buttons">
+                <button id="btn-binary-show-answer" class="btn btn-accent">
+                    <span id="btn-binary-show-answer-text">Hiện Đáp Án</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <div class="keyboard-hints">
+                <div class="hint-item"><kbd>Space</kbd> / <kbd>Enter</kbd> Chuyển thẻ tiếp theo</div>
+                <div class="hint-item"><kbd>←</kbd> <kbd>→</kbd> Xem lại lịch sử</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL 1: 00-99 Lookup Table Modal -->
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <h2 id="modal-title">Bảng Mã Hoá 100 Số (00 - 99)</h2>
+                    <p class="modal-subtitle">Danh sách từ khóa hình ảnh mã hóa đầy đủ</p>
+                </div>
+                <button id="btn-close-modal" class="close-btn" aria-label="Đóng bảng mã hoá">×</button>
+            </div>
+
+            <div class="modal-toolbar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="modal-search"
+                        placeholder="Tìm theo số (vd: 22) hoặc hình ảnh (vd: Người Nhện)..." autocomplete="off">
+                    <button id="btn-clear-search" class="clear-search-btn" title="Xóa tìm kiếm">×</button>
+                </div>
+                <div class="modal-range-filter">
+                    <button class="modal-filter-tab active" data-filter="all">Tất cả</button>
+                    <button class="modal-filter-tab" data-filter="00-19">00-19</button>
+                    <button class="modal-filter-tab" data-filter="20-39">20-39</button>
+                    <button class="modal-filter-tab" data-filter="40-59">40-59</button>
+                    <button class="modal-filter-tab" data-filter="60-79">60-79</button>
+                    <button class="modal-filter-tab" data-filter="80-99">80-99</button>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div id="dataset-grid" class="dataset-grid">
+                    <!-- Grid items will be rendered dynamically by JS -->
+                </div>
+                <div id="no-results" class="no-results hidden">
+                    <p>Không tìm thấy cặp số/từ khóa phù hợp!</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <span id="modal-count-indicator">Hiển thị 100/100 cặp mã hóa</span>
+                <button id="btn-modal-close-footer" class="btn btn-secondary">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Binary 3-Bit Lookup Modal -->
+    <div id="binary-modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container binary-modal-container" role="dialog">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <h2>Bảng Quy Đổi 3-Bit Nhị Phân</h2>
+                    <p class="modal-subtitle">Bảng quy đổi 8 nhóm 3-bit sang chữ cái từ khóa</p>
+                </div>
+                <button id="btn-close-binary-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="binary-lookup-grid" class="binary-lookup-grid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-binary-modal-close-footer" class="btn btn-secondary">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
