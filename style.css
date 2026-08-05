@@ -97,42 +97,44 @@
     background-color: #0b0f19;
 }
 
-html {
-    width: 100%;
-    height: 100%;
+html, body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     height: -webkit-fill-available;
-    min-height: 100vh;
-    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background: var(--bg-gradient) !important;
     background-color: var(--bg-main) !important;
-    overflow: hidden;
+    touch-action: manipulation;
 }
 
 body {
     font-family: var(--font-body);
-    background: var(--bg-gradient) !important;
-    background-color: var(--bg-main) !important;
     color: var(--text-main);
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 1.5;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    min-height: -webkit-fill-available;
-    overflow: hidden;
     transition: background var(--transition-speed) var(--transition-curve), color var(--transition-speed) var(--transition-curve);
 }
 
 .app-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     max-width: 900px;
-    height: 100vh;
-    height: 100dvh;
-    height: -webkit-fill-available;
+    height: 100%;
     padding-top: calc(max(2.25rem, env(safe-area-inset-top, 0px)) + 0.25rem);
-    padding-bottom: calc(max(0.75rem, env(safe-area-inset-bottom, 0px)) + 0.25rem);
+    padding-bottom: calc(max(0.4rem, env(safe-area-inset-bottom, 0px)) + 0.2rem);
     padding-left: max(0.85rem, env(safe-area-inset-left, 0px));
     padding-right: max(0.85rem, env(safe-area-inset-right, 0px));
     display: flex;
@@ -1273,7 +1275,7 @@ kbd {
 
 .binary-display {
     font-family: monospace;
-    font-size: clamp(3.5rem, 14vw, 7.5rem);
+    font-size: clamp(4.5rem, 18vw, 8rem);
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--text-main);
